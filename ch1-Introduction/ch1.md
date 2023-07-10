@@ -28,5 +28,6 @@
   - eg. `81 ≡ 61 ≡ 1 (mod 10)`
   - so, if `A ≡ B (mod N)`, then `A + C ≡ B + C (mod N)` and `A * D ≡ B * D (mod N)`
 - If **N is prime**, there are three important theorems:
-  1. `ab ≡ 0` is true if and only if `a ≡ 0 (mod) N` or `b ≡ 0 (mod) N`
-  2. `a * x ≡ 1 (mod N)` has 
+  1. `ab ≡ 0` is true if and only if `a ≡ 0 (mod N)` or `b ≡ 0 (mod N)`
+  2. `a * x ≡ 1 (mod N)` has a unique solution `(mod N)` for all `0 < a < N`. This solution `0 < x < N` is the **multiplicative inverse**
+  3. `x^2 ≡ a (mod N)` has either two solutions `(mod N)` for all `0 < a < N`, or no solutions
