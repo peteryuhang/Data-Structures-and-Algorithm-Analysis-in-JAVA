@@ -22,3 +22,11 @@
 - Basic: `SUM(1 + 2 + 3 + ... + N) = N * (N+1) / 2 ≈ N^2 / 2`
 - Harmonic numbers: `HN = SUM(1 + 1/2 + 1/3 + ... + 1/N) ≈ loge(N)`, the error in the formula tends to `0.57721566`, which is known as **Euler's constant**
 
+## Modular Arithmetic
+
+- We say A is congruent to B modulo N, written `A ≡ B (mod N)` **if N divides `A - B`**
+  - eg. `81 ≡ 61 ≡ 1 (mod 10)`
+  - so, if `A ≡ B (mod N)`, then `A + C ≡ B + C (mod N)` and `A * D ≡ B * D (mod N)`
+- If **N is prime**, there are three important theorems:
+  1. `ab ≡ 0` is true if and only if `a ≡ 0 (mod) N` or `b ≡ 0 (mod) N`
+  2. `a * x ≡ 1 (mod N)` has 
