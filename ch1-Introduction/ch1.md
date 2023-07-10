@@ -43,3 +43,23 @@
     - Assuming that the theorem is false and showing that this assumption implies that some known property is false
   - Proof by counterexample
 
+## A Brief Introduction to Recursion
+
+- A function that is defined in terms of itself is called **recursive**
+- Recursion example
+  ```java
+  // f(x) = 2 * f(x - 1) + x^2
+  public static int f(int x) {
+    // base case
+    if (x == 0)
+      return 0;
+    else 
+      return 2 * f(x - 1) + x * x;
+  }
+  ```
+  - Recursive calls will keep on being made until a base case is reached
+- Four fundamental rules of recursion
+  - **Base case**: Must always have some base cases, which can be solved without recursion
+  - **Making progress**: The recusive call must always be to a case that makes progress toward a base case
+  - **Design rule**: Assume that all the recursive calls work
+  - **Compound interest rule**: Never duplicate work by solving the same instance of a problem in separate recursive calls
