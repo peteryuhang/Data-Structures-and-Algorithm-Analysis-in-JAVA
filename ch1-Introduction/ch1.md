@@ -22,7 +22,7 @@
 - Basic: `SUM(1 + 2 + 3 + ... + N) = N * (N+1) / 2 ≈ N^2 / 2`
 - Harmonic numbers: `HN = SUM(1 + 1/2 + 1/3 + ... + 1/N) ≈ loge(N)`, the error in the formula tends to `0.57721566`, which is known as **Euler's constant**
 
-## Modular Arithmetic
+### Modular Arithmetic
 
 - We say A is congruent to B modulo N, written `A ≡ B (mod N)` **if N divides `A - B`**
   - eg. `81 ≡ 61 ≡ 1 (mod 10)`
@@ -32,7 +32,7 @@
   2. `a * x ≡ 1 (mod N)` has a unique solution `(mod N)` for all `0 < a < N`. This solution `0 < x < N` is the **multiplicative inverse**
   3. `x^2 ≡ a (mod N)` has either two solutions `(mod N)` for all `0 < a < N`, or no solutions
 
-## The P word
+### The P word
 
 - 3 ways of proving statements in data structure analysis
   - Proof by induction (eg. Fibonacci Number)
@@ -42,3 +42,4 @@
   - Proof by contradiction (eg. infinite number of primes)
     - Assuming that the theorem is false and showing that this assumption implies that some known property is false
   - Proof by counterexample
+
