@@ -31,3 +31,14 @@
   1. `ab ≡ 0` is true if and only if `a ≡ 0 (mod N)` or `b ≡ 0 (mod N)`
   2. `a * x ≡ 1 (mod N)` has a unique solution `(mod N)` for all `0 < a < N`. This solution `0 < x < N` is the **multiplicative inverse**
   3. `x^2 ≡ a (mod N)` has either two solutions `(mod N)` for all `0 < a < N`, or no solutions
+
+## The P word
+
+- 3 ways of proving statements in data structure analysis
+  - Proof by induction (eg. Fibonacci Number)
+    1. Proving base case
+    2. **Inductive hypothesis**: the theorem is assumed to be true for all cases up to some limit k
+    3. Use this assumption, prove the theorem is then shown to be true for the next value, which is k + 1
+  - Proof by contradiction (eg. infinite number of primes)
+    - Assuming that the theorem is false and showing that this assumption implies that some known property is false
+  - Proof by counterexample
