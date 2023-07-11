@@ -63,3 +63,10 @@
   - **Making progress**: The recusive call must always be to a case that makes progress toward a base case
   - **Design rule**: Assume that all the recursive calls work
   - **Compound interest rule**: Never duplicate work by solving the same instance of a problem in separate recursive calls
+
+## Implementing Generic Components (Pre-Java 5)
+
+### Using Object for Genericity
+
+- To access a specific method of the object, we must **downcast** to the correct type
+- Primitive type can not be used. Only reference type are compatible with Object
