@@ -128,3 +128,21 @@
   GenericMemoryCell<Integer> m = new GenericMemoryCell<>();
   ```
 - The diamond operator simplifies the code, with no cost to the developer
+
+
+### Wildcards with Bounds
+
+- Arrays are covariant, but generic collection are not covariant
+  - As a result, we can not pass a `Collection<SubType>` as a parameter to the method of `Collection<SuperType>`
+- Java 5 makes up for this with `wildcards`, eg
+  ```java
+  // both Square and Shape are acceptable
+  public static double totalArea( Collection<? extends Shape> arr ) {
+    double total = 0;
+    for (Shape s : arr)
+      if (s != null)
+        total += s.area();
+    
+    return total;
+  }
+  ```
