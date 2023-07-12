@@ -115,3 +115,8 @@
   ```
 - By making the class generic, many of the errors that were previously only reported at runtime become compile-time errors
 
+### Autoboxing/Unboxing
+
+- **Autoboxing**: If an `int` is passed in a place where an `Integer` is required, the compiler will insert a call to the Integer constructor behind the scenes
+- **Unboxing**: If an `Integer` is passed in a place where an `int` is required, the compiler will insert a call to the intValue method behind the scenes
+- Similar for other 7 primitive/wrapper pairs
