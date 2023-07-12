@@ -163,3 +163,18 @@
 
 ### Type Bounds
 
+- Similar as wildcard with bounds, eg
+  ```java
+  public static <AnyType extends Comparable<? super AnyType>> AnyType findMax(AnyType[] arr) {
+    int maxIndex = 0;
+
+    for (int i = 1; i < arr.length; i++)
+      if (arr[i].compareTo(arr[maxIndex]) > 0)
+        maxIndex = i;
+    
+    return arr[maxIndex];
+  }
+  ```
+  - `<AnyType extends Comparable>` not work because the `Comparable` interface is now generic
+  - `<AnyType extends Comparable<AnyType>>` is better but still not work because `Comparable<SuperType>` also need to be considered
+  - `<AnyType extends Comparable<? super AnyType>>` is the final answer
