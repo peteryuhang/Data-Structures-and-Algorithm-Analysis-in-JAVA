@@ -120,3 +120,11 @@
 - **Autoboxing**: If an `int` is passed in a place where an `Integer` is required, the compiler will insert a call to the Integer constructor behind the scenes
 - **Unboxing**: If an `Integer` is passed in a place where an `int` is required, the compiler will insert a call to the intValue method behind the scenes
 - Similar for other 7 primitive/wrapper pairs
+
+### The Diamond Operator
+
+- Java 7 adds a new language feature, known as the diamond operator, eg.
+  ```java
+  GenericMemoryCell<Integer> m = new GenericMemoryCell<>();
+  ```
+- The diamond operator simplifies the code, with no cost to the developer
