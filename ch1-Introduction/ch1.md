@@ -96,3 +96,22 @@
   - The covariance of arrays was needed in earlier versions of Java
 
 
+## Implementing Generic Components (Using Java 5 Generics)
+
+- Example of generic version class:
+  ```java
+  public class GenericMemoryCell<AnyType> {
+    public AnyType read() { return storedValue; }
+    public void write(AnyType x) { storedValue = x; }
+
+    private AnyType storedValue;
+  }
+  ```
+- Example of generic version interface:
+  ```java
+  public interface Comparable<AnyType> {
+    public int compareTo(AnyType other);
+  }
+  ```
+- By making the class generic, many of the errors that were previously only reported at runtime become compile-time errors
+
