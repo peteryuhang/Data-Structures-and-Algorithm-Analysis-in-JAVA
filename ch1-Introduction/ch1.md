@@ -146,3 +146,20 @@
     return total;
   }
   ```
+
+### Generic Static Methods
+
+- The generic method looks much like the generic class in that the type parameter list uses the same syntax
+  ```java
+  public static <AnyType> boolean contains(AnyType[] arr, AnyType x) {
+    for ( AnyType val : arr )
+      if ( x.equals(val) )
+        return true;
+    return false;
+  }
+  ```
+  - The type parameters in a generic method precede the return type
+  - We can get compile-time errors if type of `x` is different from elements in `arr`
+
+### Type Bounds
+
