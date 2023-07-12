@@ -82,3 +82,17 @@
 - The wrapper class implemented `Comparable` interface
 - Can consider use **function object** if it is impossible to declare that a class implements a needed interface
 
+### Compatibility of Array Types
+
+- Suppose that Employee IS-A Person, does it imply that Employee[] IS-A Person[]?
+  ```java
+  Person[] arr = new Employee[5];       // compiles: arrays are compatible
+  arr[0] = new Student(...);            // compiles: Student IS-A Person
+  ```
+  - Alough both statements compile, we have type confusion, since Student is not Employee
+  - The runtime system cannot throw a `ClassCastException` since there is no cast
+- In Java the arrays are **type-compatible**, known as **covariant type array**
+  - Each array keeps track of the type of object it is allowed to store. If an incompatible type is inserted into the array, the VM will throw an `ArrayStoreException`
+  - The covariance of arrays was needed in earlier versions of Java
+
+
