@@ -70,3 +70,15 @@
 
 - To access a specific method of the object, we must **downcast** to the correct type
 - Primitive type can not be used. Only reference type are compatible with Object
+
+### Wrapper for Primitive Types
+
+- Each wrapper object is immutable, meaning its state can never change
+
+### Using Interface Types for Genericity
+
+- Only objects that implement the `Comparable` interface can be passed as elements of the `Comparable`
+- Objects that have a compareTo method but do not declare that they implement `Comparable` are not `Comparable`, and do not have the requisite IS-A relationship
+- The wrapper class implemented `Comparable` interface
+- Can consider use **function object** if it is impossible to declare that a class implements a needed interface
+
