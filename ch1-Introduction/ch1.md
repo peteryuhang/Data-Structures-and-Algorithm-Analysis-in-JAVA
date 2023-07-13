@@ -214,3 +214,15 @@
   arr2[0] = cell;
   String s = arr1[0].read(); // will eventually generate a ClassCastException
   ```
+
+## Function Objects
+
+- Depend on the object itself to implement a interface (eg. Comparable) sometime is not flexiable, we can pass in a function which provide related feature, this also decouple from the object
+- **Function Objects**: A function is being passed by placing it inside an object
+  ```java
+  public interface Comparator<AnyType> {
+    int compare(AnyType lhs, AnyType rhs);
+  }
+
+  public static <AnyType> AnyType findMax(AnyType[] arr, Comparator<? super AnyType> cmp) {...}
+  ```
