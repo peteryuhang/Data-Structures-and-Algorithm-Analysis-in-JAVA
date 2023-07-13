@@ -178,3 +178,39 @@
   - `<AnyType extends Comparable>` not work because the `Comparable` interface is now generic
   - `<AnyType extends Comparable<AnyType>>` is better but still not work because `Comparable<SuperType>` also need to be considered
   - `<AnyType extends Comparable<? super AnyType>>` is the final answer
+
+### Type Erasure
+
+- Generic classes are converted by the compiler to nongeneric classes by a process known **type erasure**
+
+### Restrictions on Generics
+
+- Primitive types cannot be used for a type parameter
+- Instanceof tests and typecasts work only with raw type, eg.
+  ```java
+  GenericMemoryCell<Integer> cell1 = new GenericMemoryCell<>();
+  cell1.write(4);
+  Object cell = cell1;
+  GenericMemoryCell<String> cell2 = (GenericMemoryCell<String>)cell;
+  String s = cell2.read();     // will encounter runtime error here
+  ```
+- In a generic class, static methods and fields cannot refer to the class's type variable
+  - Because there is really only one raw class, static fields are shared among the class's generic instantiations
+- It is illegal to create an instance of a generic type, eg.
+  ```java
+  // if T is a type variable
+  T obj = new T();         // right-hand side is illegal
+  ```
+  - `T` is replaced by its bounds, which could be `Object` or abstract class, so the call to `new` cannot make senses
+- Instantiation of arrays of parameterized types is illegal:
+  ```java
+  GenericMemoryCell<String>[] arr1 = new GenericMemoryCell<>[10];
+  GenericMemoryCell<Double> cell = new GenericMemoryCell<>();
+  cell.write(4.5);
+  Object[] arr2 = arr1;
+  
+  // won't give error below because after type erasure the array type is GenericMemoryCell
+  // there is no ArrayStoreException, and there is no casts
+  arr2[0] = cell;
+  String s = arr1[0].read(); // will eventually generate a ClassCastException
+  ```
