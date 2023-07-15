@@ -29,3 +29,11 @@
 
 - The inefficiency can be improved by noticing that `SUM(i + ... + j) = j + SUM(i + ... + (j - 1))`
 - [Second Version](./SubsequenceSum2.java)
+
+- Can consider divide and conquer strategy to do the improvement
+  - Divide stage split the problem into 2 sub-problem, left half and right half in this case
+  - Conquer stage patching togather the 2 solution, and arrival at final solution, the maximum subsequence sum can be in one of 3 places:
+    - Occurs entirely in the left half of the input
+    - Occurs entirely in the right half of the input
+    - Largest sum in the left half that includes the last element + Largest sum in the right half that includes the first element
+- [Third Version](./SubsequenceSum3.java)
