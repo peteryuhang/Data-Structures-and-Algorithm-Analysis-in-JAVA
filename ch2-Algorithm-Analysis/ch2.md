@@ -37,3 +37,20 @@
     - Occurs entirely in the right half of the input
     - Largest sum in the left half that includes the last element + Largest sum in the right half that includes the first element
 - [Third Version](./SubsequenceSum3.java)
+  - The time complexity calculation
+    - `T(1) = 1`
+    - `T(N) = 2 * T(N / 2) + O(N)`
+    - We can observe the pattern through:
+      ```
+      T(N) = 2 * T(N / 2) + O(N)
+      T(N) = 2 * T(N / 2) + N
+      T(N) = 2 * (2 * T(N/4) + N/2) + N
+      T(N) = 2 * (2 * (2 * T(N/8) + N/4) + N/2) + N
+      ...
+      ```
+    - `T(N) = NlogN + N`
+
+- Observation is that if `a[i]` is negative, then it cannot possibly represent the start of the optimal sequence
+  - Similarly, any negative subsequence cannot possibly be a prefix
+- [Fourth Version](./SubsequenceSum4.java)
+  - **Online algorithm**: Correctly give an answer to the problem for the data it has already read, no need to store the data (requires constant space)
