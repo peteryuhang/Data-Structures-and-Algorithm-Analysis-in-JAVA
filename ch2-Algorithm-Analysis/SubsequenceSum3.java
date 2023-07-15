@@ -7,7 +7,11 @@ public class SubsequenceSum3 {
 
   public static int maxSubSum3(int[] a, int left, int right) {
     if (left >= right) {
-      return a[left];
+      if (a[left] > 0) {
+        return a[left];
+      } else {             // if the maxsum is negative, return 0
+        return 0;
+      }
     }
 
     int center = (left + right) / 2;
