@@ -24,3 +24,8 @@
 
 ### Solution for the Maximum Subsequence Sum Problem
 
+- [First Version](./SubsequenceSum1.java)
+  - The Big Oh time complexity is `O(N^3)`
+
+- The inefficiency can be improved by noticing that `SUM(i + ... + j) = j + SUM(i + ... + (j - 1))`
+- [Second Version](./SubsequenceSum2.java)
