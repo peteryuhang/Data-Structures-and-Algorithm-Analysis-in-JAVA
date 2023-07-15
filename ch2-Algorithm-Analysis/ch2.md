@@ -54,3 +54,60 @@
   - Similarly, any negative subsequence cannot possibly be a prefix
 - [Fourth Version](./SubsequenceSum4.java)
   - **Online algorithm**: Correctly give an answer to the problem for the data it has already read, no need to store the data (requires constant space)
+
+
+### Logarithms in the Running Time
+
+- An algorithm is `O(logN)` if it takes constant `O(1)` time to cut the problem size by a fraction (which is usually 1/2)
+
+#### Binary Search
+
+example:
+```java
+public static <AnyType extends Comparable<? super AnyType>> int binarySearch( AnyType [ ] a, AnyType x ) {
+  int low = 0, high = a.length - 1;
+  while( low <= high ) {
+    int mid=(low+high)/2;
+    if(a[ mid ].compareTo( x ) < 0 )
+      low= mid + 1;
+    else if( a[ mid ].compareTo( x ) > 0 )
+      high = mid - 1;
+    else
+      return mid;
+
+  }
+ return NOT_FOUND;
+}
+```
+
+#### Euclid's Algorithm
+
+- Computing the greatest common divisor
+
+```java
+public static long gcd(long m, long n) {
+  while (n != 0) {
+    long rem = m % n;
+    m = n;
+    n = rem;
+  }
+  return m;
+}
+```
+
+- At first glance, the time complexity is not obvious, but if `m > n`, then `m mod n < m/2`, which can roughly represent the time complexity
+
+#### Exponentiation
+
+```java
+public static long pow(long x, int n) {
+  if (n == 0)
+    return 1;
+  // if (n == 1)
+  //   return x;
+  if (isEven(n))
+    return pow(x*x, n/2);
+  else
+    return pow(x*x, n/2) * x;
+}
+```
