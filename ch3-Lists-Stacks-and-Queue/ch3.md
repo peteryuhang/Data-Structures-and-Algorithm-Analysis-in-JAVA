@@ -61,3 +61,19 @@
     }
   }
   ```
+
+### ListIterators
+
+- Subset of the `ListIterator` interface in package `java.util`
+  ```java
+  public interface ListIterator<AnyType> extends Iterator<AnyType> {
+    boolean hasPrevious();
+    AnyType previous();
+
+    void add(AnyType x);
+    void set(AnyType newval);
+  }
+  ```
+  - `hasPrevious` and `previous` function allow traversal of the list from the back to front
+  - `add` places a new item into the list in the current position(position between the element returned by next and element returned by previous)
+  - `set` change the last value seen by the iterator
