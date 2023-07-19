@@ -153,3 +153,18 @@
     }
     ```
     - The inner class is useful in a situation in which each inner class object is associated with exactly one instance of an outer class object
+
+
+## The Stack ADT
+
+### Applications
+ 
+- Balancing Symbols
+- Postfix Expressions
+  - Also been called reverse Polish notation
+  - When a number is seen, push to the stack, when an operator is seen, the operator is applied to the two numbers that are popped from the stack, and the result is pushed onto the stack
+  - `((2 + 3) * 8 + 5 + 3) * 6` been written as postfix is `5 6 2 3 + 8 * + 3 + *`
+  - The benifits for Postfix expressions is there is no need to know any precedence rules when performing calculating
+- Infix to Postfix Conversion
+  - Convert an expression in standard form into postfix
+
