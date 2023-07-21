@@ -159,12 +159,16 @@
 
 ### Applications
  
-- Balancing Symbols
-- Postfix Expressions
+- **Balancing Symbols**
+- **Postfix Expressions**
   - Also been called reverse Polish notation
   - When a number is seen, push to the stack, when an operator is seen, the operator is applied to the two numbers that are popped from the stack, and the result is pushed onto the stack
   - `((2 + 3) * 8 + 5 + 3) * 6` been written as postfix is `5 6 2 3 + 8 * + 3 + *`
   - The benifits for Postfix expressions is there is no need to know any precedence rules when performing calculating
-- Infix to Postfix Conversion
+- **Infix to Postfix Conversion**
   - Convert an expression in standard form into postfix
-
+  - There are 2 places to put operand and operator, one is stack and another is output. When an operand is read, it is immediately placed onto the output. If we see a right parenthesis, then we pop the stack (put the symbols from stack to output) until we encounter the left parenthesis. If we see any other symbol (eg. `+`, `-`, `*`, `(`), then we pop entry from the stack until we find an entry of lower priority
+- **Method Calls**
+  - Can look the method call and method return as left parethesis and righ parethesis
+  - The information saved is called either **activation record** or **stack frame**
+  - **Tail Recursion**: a recursive call at the last line. Better to avoid or convert it to other form
