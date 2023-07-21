@@ -172,3 +172,15 @@
   - Can look the method call and method return as left parethesis and righ parethesis
   - The information saved is called either **activation record** or **stack frame**
   - **Tail Recursion**: a recursive call at the last line. Better to avoid or convert it to other form
+
+## The Queue ADT
+
+- Basic operations:
+  - enqueue: Insert an element at the end of the list (called the **rear**)
+  - dequeue: Deletes (and returns) the element at the start of the list (known as the **front**)
+- For array implementation of Queues, we can consider the circular array
+
+### Applications
+
+- Jobs send to a line printer are placed on a queue
+- Lines at ticket counters are queue
