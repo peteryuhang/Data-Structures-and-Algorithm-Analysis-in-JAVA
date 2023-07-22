@@ -17,3 +17,98 @@
 - Using postorder traversal, we can print postfix representation
 
 - We can use the postfix representation to construct expression trees (we can first convert infix to postfix by using stack)
+
+## The Search Tree ADT - Binary Search Trees
+
+### Contains
+
+```java
+private boolean contains(AnyType x, BinaryNode<AnyType> t) {
+  if (t == null) {
+    return false;
+  }
+
+  int compareResult = x.compareTo(t.element)
+  // tail recursion, can be easily removed with loop
+  if (compareResult < 0) {
+    return contains(x, t.left); 
+  }
+  if (t.element > 0) {
+    return contains(x, t.right);
+  }
+  return true;
+}
+```
+
+### findMin and findMax
+
+```java
+private BinaryNode<AnyType> findMin(BinaryNode<AnyType> t) {
+  if (t == null) {
+    return null;
+  } else if (t.left == null) {
+    return t;
+  }
+  return findMin(t.left);
+}
+
+private BinaryNode<AnyType> findMax(BinaryNode<AnyType> t) {
+  if (t != null) {
+    while (t.right != null)
+      t = t.right;
+
+  return t;
+}
+```
+
+### insert
+
+```java
+private BinaryNode<AnyType> insert(AnyType x, BinaryNode<AnyType> t) {
+  if (t == null) {
+    return new BinaryNode<>(x, null, null);
+  }
+
+  int compareResult = x.compareTo(t.element);
+  if (compareResult < 0) {
+    t.left = insert(x, t.left);
+  } else if (compareResult > 0) {
+    t.right = insert(x, t.right);
+  } // can add thing need to be done when elements are equal
+  return t;
+}
+```
+
+### remove
+
+Consider 3 situations:
+
+- If the node is a leaf, it can be deleted immediately
+- If the node has one child, the node can be delete after its parent adjust a link to bypass the node
+- If the node has two children, can find the smallest node on right tree, replace the value of this node with the found node, then delete the node in right tree
+
+```java
+private BinaryNode<AnyType> remove(AnyType x, BinaryNode<AnyType> t) {
+  if (t == null) {
+    return null;
+  }
+
+  int compareResult = x.compareTo(t.element);
+  if (compareResult < 0) {
+    t.left = remove(x, t.left);
+  } else if (compareResult > 0) {
+    t.right = remove(x, t.right);
+  }
+
+  if (t.left != null && t.right != null) { // two child
+    t.element = findMin(t.right).element;
+    t.right = remove(t.element, t);
+  } else {                                 // less than two child
+    t = (t.left != null) ? t.left : t.right;
+  }
+
+  return t;
+}
+```
+
+- **Lazy deletions**: When an element is to be deleted, it is left in the tree and merely marked as being deleted
