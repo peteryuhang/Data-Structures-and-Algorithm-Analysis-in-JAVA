@@ -8,3 +8,5 @@ Note of reading book - Data Structures and Algorithm Analysis
 ## [Ch 2. Algorithm Analysis](./ch2-Algorithm-Analysis/ch2.md)
 
 ## [Ch 3. Lists, Stacks, and Queue](./ch3-Lists-Stacks-and-Queue/ch3.md)
+
+## [Ch 4. Trees](./ch4-Trees/ch4.md)
