@@ -112,3 +112,14 @@ private BinaryNode<AnyType> remove(AnyType x, BinaryNode<AnyType> t) {
 ```
 
 - **Lazy deletions**: When an element is to be deleted, it is left in the tree and merely marked as being deleted
+
+### Average-Case Analysis
+
+- **Internal Path Length**: The sum of the depth of all nodes in a tree
+  - `D(N) = D(i) + D(N - i - 1) + N - 1` where `D(N)` is the internal path length of tree `T`, `D(i)` is the left subtree, `D(N - i - 1)` is the right subtree. For balance BST, finally we can get `D(N) = O(NlogN)`
+- But based on the `remove` algorithm list above, the right subtree will be smaller than left. To optimize previous algorithm, we can randomly choose replace with the largest element on left subtree and the the smallest on the right subtree
+- The difficulty is that defining what's average is very difficult andd sometime need assumption which might be invalid
+
+- Ways for optimization:
+  - **Balanced search tree**: eg. AVL tree
+  - **Self-adjusting tree**: forgo the balance condition and allow the tree to be arbitrarily deep, but after every operation, a restructing rule is applied that trends to make future operations efficient. It not guarantee for every operation, but for M operation, the worst case will be `O(MlogN)` eg. splay tree 
