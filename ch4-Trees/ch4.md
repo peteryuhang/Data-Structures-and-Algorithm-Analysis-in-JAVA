@@ -122,4 +122,19 @@ private BinaryNode<AnyType> remove(AnyType x, BinaryNode<AnyType> t) {
 
 - Ways for optimization:
   - **Balanced search tree**: eg. AVL tree
-  - **Self-adjusting tree**: forgo the balance condition and allow the tree to be arbitrarily deep, but after every operation, a restructing rule is applied that trends to make future operations efficient. It not guarantee for every operation, but for M operation, the worst case will be `O(MlogN)` eg. splay tree 
+  - **Self-adjusting tree**: forgo the balance condition and allow the tree to be arbitrarily deep, but after every operation, a restructing rule is applied that trends to make future operations efficient. It not guarantee for every operation, but for M operation, the worst case will be `O(MlogN)` eg. splay tree
+
+## AVL Trees
+
+- An AVL tree is identical to a binary tree, except that for every node in the tree, the height of the left and right subtrees can differ by at most 1
+- `S(h) = S(h - 1) + S(h - 2) + 1`, h is the tree height, `S(h)` is the minimum number of nodes
+- After an insertion, only nodes that are on the path from the insertion point to the root might have their balance altered because only those nodes have their subtrees altered
+- Assume the node which must been rebalanced is `a`, then a violation might occur in 4 cases
+  - An insertion into the left subtree of the left child of `a`
+    - fixed by **single rotation**
+  - An insertion into the right subtree of the left child of `a`
+    - fixed by **double rotation**
+  - An insertion into the left subtree of the right child of `a`
+    - fixed by **double rotation**s
+  - An insertion into the right subtree of the right child of `a`
+    - fixed by **single rotation**
