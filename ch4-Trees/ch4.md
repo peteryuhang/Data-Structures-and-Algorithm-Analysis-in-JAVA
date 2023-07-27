@@ -135,6 +135,15 @@ private BinaryNode<AnyType> remove(AnyType x, BinaryNode<AnyType> t) {
   - An insertion into the right subtree of the left child of `a`
     - fixed by **double rotation**
   - An insertion into the left subtree of the right child of `a`
-    - fixed by **double rotation**s
+    - fixed by **double rotation**
   - An insertion into the right subtree of the right child of `a`
     - fixed by **single rotation**
+
+### Single Rotation
+
+- For the case 1:
+![](./Screen%20Shot%202023-07-27%20at%2010.04.09%20AM.png)
+
+- For the case 4:
+![](./Screen%20Shot%202023-07-27%20at%2010.05.07%20AM.png)
+
