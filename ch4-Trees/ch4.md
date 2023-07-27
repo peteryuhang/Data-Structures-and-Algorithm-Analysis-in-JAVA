@@ -147,3 +147,10 @@ private BinaryNode<AnyType> remove(AnyType x, BinaryNode<AnyType> t) {
 - For the case 4:
 ![](./Screen%20Shot%202023-07-27%20at%2010.05.07%20AM.png)
 
+### Double Rotation
+
+- For the case 2:
+![](./Screen%20Shot%202023-07-27%20at%2010.17.58%20AM.png)
+
+- For the case 3:
+![](./Screen%20Shot%202023-07-27%20at%2010.18.26%20AM.png)
