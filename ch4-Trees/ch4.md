@@ -157,4 +157,5 @@ private BinaryNode<AnyType> remove(AnyType x, BinaryNode<AnyType> t) {
 
 ## Splay Trees
 
-- Guarantees that any `M` consecutive tree operations starting from empty tree take at most `O(MlogN)` time. Thus, a splay tree has an `O(logN)` **amortized cost per operation**.
+- Guarantees that any `M` consecutive tree operations starting from empty tree take at most `O(MlogN)` time. Thus, a splay tree has an `O(logN)` **amortized cost per operation**
+- The basic idea of the splay tree is that after a node is accessed, it is pushed to the root by a series of AVL tree rotations
