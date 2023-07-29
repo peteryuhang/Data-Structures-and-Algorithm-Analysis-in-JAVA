@@ -64,15 +64,20 @@ public class AVLTree<AnyType extends Comparable<? super AnyType>> {
     }
 
     if (height(t.left) - height(t.right) > ALLOWED_IMBALANCE) {
+      // for the equal case, no need go with double rotation
       if (height(t.left.left) >= height(t.left.right)) {
+        // case1: An insertion into the left subtree of the left child of t
         t = rotateWithLeftChild(t);
       } else {
+        // case2: An insertion into the left subtree of the right child of t
         t = doubleWithLeftChild(t);
       }
     } else if (height(t.right) - height(t.left) > ALLOWED_IMBALANCE) {
       if (height(t.right.right) >= height(t.right.left)) {
+        // case4: An insertion into the right subtree of the right child of t
         t = rotateWithRightChild(t);
       } else {
+        // case3: An insertion into the right subtree of the left child of t
         t = doubleWithRightChild(t);
       }
     }
