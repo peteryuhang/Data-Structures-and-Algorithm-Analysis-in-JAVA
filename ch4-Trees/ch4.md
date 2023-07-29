@@ -153,3 +153,8 @@ private BinaryNode<AnyType> remove(AnyType x, BinaryNode<AnyType> t) {
 
 - For the case 3:
 ![](./Screen%20Shot%202023-07-27%20at%2010.18.26%20AM.png)
+
+
+## Splay Trees
+
+- Guarantees that any `M` consecutive tree operations starting from empty tree take at most `O(MlogN)` time. Thus, a splay tree has an `O(logN)` **amortized cost per operation**.
