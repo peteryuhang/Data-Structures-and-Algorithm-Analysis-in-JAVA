@@ -178,3 +178,10 @@ private BinaryNode<AnyType> remove(AnyType x, BinaryNode<AnyType> t) {
 - **Preorder Traversal**
   - Label each node with its depth
 - **Level-order Traversal**
+
+
+## B-Trees
+
+- Disk accesses are incredibly expensive. In almost all cases, it is the number of disk access that will dominate the running time
+- BST or AVL doesn't work because it require `log(N)` times disk access which could be higher. We need **M-ary search tree** instead of binary search tree. It can reduce the access time to `logM(N)`
+- In BST, we just need one key to decide which of 2 branch to take. In M-ary tree, we need `M - 1` keys to decide which branch to take
