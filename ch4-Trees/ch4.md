@@ -101,7 +101,7 @@ private BinaryNode<AnyType> remove(AnyType x, BinaryNode<AnyType> t) {
 
   if (t.left != null && t.right != null) { // two child
     t.element = findMin(t.right).element;
-    t.right = remove(t.element, t);
+    t.right = remove(t.element, t.right);
   } else {                                 // less than two child
     t = (t.left != null) ? t.left : t.right;
   }
