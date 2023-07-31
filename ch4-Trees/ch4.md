@@ -107,6 +107,7 @@ private BinaryNode<AnyType> remove(AnyType x, BinaryNode<AnyType> t) {
   }
 
   return t;
+}
 ```
 
 - **Lazy deletions**: When an element is to be deleted, it is left in the tree and merely marked as being deleted
