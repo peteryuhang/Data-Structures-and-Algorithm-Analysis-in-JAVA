@@ -32,8 +32,7 @@ private boolean contains(AnyType x, BinaryNode<AnyType> t) {
   // tail recursion, can be easily removed with loop
   if (compareResult < 0) {
     return contains(x, t.left); 
-  }
-  if (t.element > 0) {
+  } else if (compareResult > 0) {
     return contains(x, t.right);
   }
   return true;
