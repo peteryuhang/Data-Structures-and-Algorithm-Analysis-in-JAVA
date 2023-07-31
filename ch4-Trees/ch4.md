@@ -52,7 +52,7 @@ private BinaryNode<AnyType> findMin(BinaryNode<AnyType> t) {
 }
 
 private BinaryNode<AnyType> findMax(BinaryNode<AnyType> t) {
-  if (t != null) {
+  if (t != null)
     while (t.right != null)
       t = t.right;
 
