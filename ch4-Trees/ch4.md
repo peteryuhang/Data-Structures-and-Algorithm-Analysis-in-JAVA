@@ -167,3 +167,14 @@ private BinaryNode<AnyType> remove(AnyType x, BinaryNode<AnyType> t) {
     ![](./Screen%20Shot%202023-07-29%20at%209.04.12%20AM.png)
   - **zig-zig**: do the transformation
     ![](./Screen%20Shot%202023-07-29%20at%209.04.26%20AM.png)
+
+
+## Tree Traversals
+
+- **Inorder Traversal**
+  - Get ordering information of BST
+- **Postorder Traversal**
+  - Get the height of a node
+- **Preorder Traversal**
+  - Label each node with its depth
+- **Level-order Traversal**
