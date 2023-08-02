@@ -185,3 +185,36 @@ private BinaryNode<AnyType> remove(AnyType x, BinaryNode<AnyType> t) {
 - Disk accesses are incredibly expensive. In almost all cases, it is the number of disk access that will dominate the running time
 - BST or AVL doesn't work because it require `log(N)` times disk access which could be higher. We need **M-ary search tree** instead of binary search tree. It can reduce the access time to `logM(N)`
 - In BST, we just need one key to decide which of 2 branch to take. In M-ary tree, we need `M - 1` keys to decide which branch to take
+
+## Sets and Maps in the Standard Library
+
+### Sets
+
+- Set **IS-A** Collection
+- TreeSet: sorted set, ordering assumes that the items in the TreeSet implement the Comparable interface. An alternative ordering can be specified by instantiating the TreeSet with a comparator, eg.
+```java
+Set<String> s = new TreeSet<>( new CaseInsensitiveCompare() );
+```
+
+### Maps
+
+- Important methods in map:
+```java
+boolean containsKey(KeyType key)
+ValueType get(KeyType key)
+ValueType put(KeyType key, ValueType value)
+```
+
+- Map does not provide an iterator, 3 methods are provided that return the view of a Map as a Collection
+```java
+Set<KeyType> keySet()
+Collection<ValueType> values()
+Set<Map.Entry<KeyType,ValueType>> entrySet()
+```
+
+- For object type `Map.Entry`, the available methods:
+```java
+KeyType getKey()
+ValueType getValue()
+ValueType setValue( ValueType newValue )
+```
