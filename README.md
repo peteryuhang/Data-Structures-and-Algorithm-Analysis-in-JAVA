@@ -10,3 +10,5 @@ Note of reading book - Data Structures and Algorithm Analysis
 ## [Ch 3. Lists, Stacks, and Queue](./ch3-Lists-Stacks-and-Queue/ch3.md)
 
 ## [Ch 4. Trees](./ch4-Trees/ch4.md)
+
+## [Ch 5. Hashing](./ch5-Hashing/ch5.md)
