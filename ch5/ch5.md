@@ -63,3 +63,13 @@
   - `hi(x)=(hash(x)+f(i)) mod TableSize` with `f(0) = 0`, the function `f` is the collision resolution strategys
 - Generally, the load factor should be below `λ = 0.5` for a hash table that doesn't use separate chaining
 - This kind of hash tables be called **probing hash tables**
+
+### Linear Probing
+
+- In lineaer probing, `f` is a linear function of `i`, eg. `f(i) = i`
+- **Primary Cluster**: cluster is the block of occupied cells. primary cluster means tha any key that hashes into the cluster will require several attempts to resolve the collision, and then it will add into the clusters
+
+### Quadratic Probing
+
+- Quadratic Probing is a collision resolution method that eliminates the primary clustering problem of linear probing
+- **Theorem**(Can proved by contradiction): If quadratic probing is used, and the table size is prime, then a new element can always be inserted if the table is at least half empty
