@@ -47,3 +47,12 @@
   }
   ```
   - If the key is very long, can choose to not compute for all character
+
+## Separate Chaining
+
+- Hash table supported objects which implement **equals** method and a **hashCode** method that returns an int
+- Load factor `λ`: The ratio of the number of elements in tha hash table to the table size
+  - A successful search require that about `1+(λ/2)` links be traversed
+  - General rule is to make `λ` as large as the number of elements expected
+- The table size is not really important, but the load factor is
+
