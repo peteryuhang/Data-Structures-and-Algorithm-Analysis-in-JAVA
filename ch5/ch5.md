@@ -56,3 +56,10 @@
   - General rule is to make `λ` as large as the number of elements expected
 - The table size is not really important, but the load factor is
 
+## Hash Tables Without Linked Lists
+
+- Try alternative cells until an empty cell is found
+  - Cells `h0(x),h1(x),h2(x),...` are tried in succession
+  - `hi(x)=(hash(x)+f(i)) mod TableSize` with `f(0) = 0`, the function `f` is the collision resolution strategys
+- Generally, the load factor should be below `λ = 0.5` for a hash table that doesn't use separate chaining
+- This kind of hash tables be called **probing hash tables**
