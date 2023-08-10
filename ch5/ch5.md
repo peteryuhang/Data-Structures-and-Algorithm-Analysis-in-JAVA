@@ -63,6 +63,7 @@
   - `hi(x)=(hash(x)+f(i)) mod TableSize` with `f(0) = 0`, the function `f` is the collision resolution strategys
 - Generally, the load factor should be below `λ = 0.5` for a hash table that doesn't use separate chaining
 - This kind of hash tables be called **probing hash tables**
+- Standard deletion cannot be performed in a probing hash table, because this will potentially make next `contains` operation have problem to locate element. So probing hash tables require lazy deletion
 
 ### Linear Probing
 
@@ -73,3 +74,5 @@
 
 - Quadratic Probing is a collision resolution method that eliminates the primary clustering problem of linear probing
 - **Theorem**(Can proved by contradiction): If quadratic probing is used, and the table size is prime, then a new element can always be inserted if the table is at least half empty
+- **Secondary clustering**: Elements that hash to the same position will probe the same alternative cells
+
