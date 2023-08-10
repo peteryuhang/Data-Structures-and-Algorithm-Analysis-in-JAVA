@@ -76,3 +76,8 @@
 - **Theorem**(Can proved by contradiction): If quadratic probing is used, and the table size is prime, then a new element can always be inserted if the table is at least half empty
 - **Secondary clustering**: Elements that hash to the same position will probe the same alternative cells
 
+### Double Hashing
+
+- Formula `f(i) = i * hash(x)`, this has some requirements for hash function
+  - `hash(x) = R - (x mod R)` with R a prime smaller than `TableSize` will work well
+  - `TableSize` also important, need to be prime
