@@ -81,3 +81,9 @@
 - Formula `f(i) = i * hash(x)`, this has some requirements for hash function
   - `hash(x) = R - (x mod R)` with R a prime smaller than `TableSize` will work well
   - `TableSize` also important, need to be prime
+
+## Rehashing
+
+- Build another table that is about twice as big, and scan the old table to re-insert each element to new table
+- Rehashing will take `O(N)` but it happen infrequently, it just add constant cost to each insertion
+- Can base on the load factor to decide perform rehashing or not
