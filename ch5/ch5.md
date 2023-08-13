@@ -48,6 +48,24 @@
   ```
   - If the key is very long, can choose to not compute for all character
 
+- The `hashCode`function inside Java Standard lib
+  ```java
+  public final class String {
+    // caching the hash code, help to reduce the times to execute hashCode
+    private int hash = 0;
+
+    public int hashCode() {
+      if (hash != 0) {
+        return hash;
+      }
+
+      for (int i = 0; i < length(); i++)
+        hash = hash * 31 + (int) charAt(i);
+      return hash;
+    }
+  }
+  ```
+  - `Caching the hash code`: works because `Strings` are immutable
 ## Separate Chaining
 
 - Hash table supported objects which implement **equals** method and a **hashCode** method that returns an int
