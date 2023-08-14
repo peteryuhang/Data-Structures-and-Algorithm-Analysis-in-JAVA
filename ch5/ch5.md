@@ -105,3 +105,9 @@
 - Build another table that is about twice as big, and scan the old table to re-insert each element to new table
 - Rehashing will take `O(N)` but it happen infrequently, it just add constant cost to each insertion
 - Can base on the load factor to decide perform rehashing or not
+
+
+## Hash Tables with Worst-Case O(1) Access
+
+- **Perfect Hashing**: Hash link with hash
+- **Cuckoo Hashing**: Maintain 2 or more hash tables, and each table with different hash function
