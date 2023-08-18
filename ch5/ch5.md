@@ -111,3 +111,8 @@
 
 - **Perfect Hashing**: Hash link with hash
 - **Cuckoo Hashing**: Maintain 2 or more hash tables, and each table with different hash function
+- **Hopscotch Hashing**: Try to improve linear probing algorithm. It will keep certain distance by introducing hope info
+
+## Extendible Hashing
+
+- Same as B tree, in order to reduce the cost bring by disk memory access
