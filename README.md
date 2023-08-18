@@ -12,3 +12,5 @@ Note of reading book - Data Structures and Algorithm Analysis
 ## [Ch 4. Trees](./ch4/ch4.md)
 
 ## [Ch 5. Hashing](./ch5/ch5.md)
+
+## [Ch 6. Priority Queues (Heaps)](./ch6/ch6.md)
