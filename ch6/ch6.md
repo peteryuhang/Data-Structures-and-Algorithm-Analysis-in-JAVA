@@ -33,3 +33,9 @@
 - The total running time is `O(k + (N - k)logk) = O(Nlogk)`
 
 - In the chapter 7 and chapter 10, we will see algorithm to solve this problem in `O(N)` avg and worst-case time respectively
+
+
+### Event Simulation
+
+- Event include start and end time. But we only have `k` processors to handle the envent. We need to know the waiting time of each event and how long the event list gonna be
+- We only need to take action when one event start or one event end, just need to find the things that happens nearest in the future and process that event. So the waited event can be implemented as priority queue, the action we need to consider is either the next closed start or end
