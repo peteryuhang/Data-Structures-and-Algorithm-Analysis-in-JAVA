@@ -39,3 +39,9 @@
 
 - Event include start and end time. But we only have `k` processors to handle the envent. We need to know the waiting time of each event and how long the event list gonna be
 - We only need to take action when one event start or one event end, just need to find the things that happens nearest in the future and process that event. So the waited event can be implemented as priority queue, the action we need to consider is either the next closed start or end
+
+## d-Heaps
+
+- A simple generalization is a **d-heap**, which is exactly like a binary heap except that all nodes have d children
+- d-Heaps is efficient for situation that `insertions` is much greater than the number of `deleteMins`
+- There is evidence suggesting that 4-heaps may outperform binary heaps in practice
