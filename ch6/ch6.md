@@ -45,3 +45,7 @@
 - A simple generalization is a **d-heap**, which is exactly like a binary heap except that all nodes have d children
 - d-Heaps is efficient for situation that `insertions` is much greater than the number of `deleteMins`
 - There is evidence suggesting that 4-heaps may outperform binary heaps in practice
+
+## Leftist Heaps
+
+- A data structure that efficiently support merging
