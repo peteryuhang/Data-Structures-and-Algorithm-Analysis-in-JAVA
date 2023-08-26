@@ -52,3 +52,14 @@
 - **Null Path Length**: npl(X), any node X to be the length of the shortest path from X to a node without two children, `npl(null)=-1`
 - **Leftist Heap Property**: Every node X in the heap, the null path length of the left child is at least as large as that of the right child
 - **Theorem**: A leftist tree with `r` nodes on the right path must have at least `2^r - 1` nodes
+
+## Binomial Queues
+
+- Support all three operations (merging, insertion, deleteMin) in `O(logN)` per operation, but insertions take constant time on average
+- A **collection** of heap-ordered trees, known as a forest. Each of the heap-ordered trees is of a constrained from known as a **binomial tree**
+- There is at most one binomial tree of every height
+- A binomial tree of height 0 is a one-node tree; a binomial tree `Bk`, of height k is formed by attaching tree, `B(k-1)`, to the root of another binomial tree, `B(k-1)`
+  - A binomial tree `Bk`, consist of a root with children `B0,B1,...,B(k-1)`
+  - Binomial tree of height `k` have exactly `2^k` nodes
+  - The number of nodes at depth `d` is the binomial coefficient `(k, d)`
+- We can represent a priority queue of any size by a collection of binomial trees, just like bits in integer can represent any value
