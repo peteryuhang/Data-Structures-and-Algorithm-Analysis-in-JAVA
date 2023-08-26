@@ -80,3 +80,8 @@
 
 - First find the binomial tree with smallest root, remove the corresponding tree `Bk` from the forest, and then remove the root, so the tree become to multiple binomial trees `B0,B1,...,Bk-1`, which is a new binomial queue, then we can perform the merge operation
 - To find the binomial tree takes `O(logN)`, and merge the 2 queue takes `O(logN)`, so the entire operation takes `O(logN)` time
+
+### Implementation of Binomial Queues
+
+- Each node in a binomial tree will contain the data, first child, and right sibling. The binomial queue will be an array of binomial tree
+- The children in a binomial tree are arranged in decreasing rank
