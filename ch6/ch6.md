@@ -49,3 +49,6 @@
 ## Leftist Heaps
 
 - A data structure that efficiently support merging
+- **Null Path Length**: npl(X), any node X to be the length of the shortest path from X to a node without two children, `npl(null)=-1`
+- **Leftist Heap Property**: Every node X in the heap, the null path length of the left child is at least as large as that of the right child
+- **Theorem**: A leftist tree with `r` nodes on the right path must have at least `2^r - 1` nodes
