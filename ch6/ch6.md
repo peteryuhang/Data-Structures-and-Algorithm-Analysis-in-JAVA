@@ -63,3 +63,20 @@
   - Binomial tree of height `k` have exactly `2^k` nodes
   - The number of nodes at depth `d` is the binomial coefficient `(k, d)`
 - We can represent a priority queue of any size by a collection of binomial trees, just like bits in integer can represent any value
+
+### Binomial Queue Operations
+
+#### Merging
+
+- Binomial Queue contains `N` element will end with `log(N)` binomial tree
+- The merging 2 binomial tree take constant time, some merging 2 binomial queue take `O(logN)`
+
+#### Insertion
+
+- Create one node tree and perform a merge
+- Since each tree in a binomial queue is present with probability 1/2, it follows that we expect an insertion to terminate in 2 steps, so the average time is constant
+
+#### DeleteMin
+
+- First find the binomial tree with smallest root, remove the corresponding tree `Bk` from the forest, and then remove the root, so the tree become to multiple binomial trees `B0,B1,...,Bk-1`, which is a new binomial queue, then we can perform the merge operation
+- To find the binomial tree takes `O(logN)`, and merge the 2 queue takes `O(logN)`, so the entire operation takes `O(logN)` time
