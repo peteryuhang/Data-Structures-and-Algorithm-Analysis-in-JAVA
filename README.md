@@ -14,3 +14,5 @@ Note of reading book - Data Structures and Algorithm Analysis
 ## [Ch 5. Hashing](./ch5/ch5.md)
 
 ## [Ch 6. Priority Queues (Heaps)](./ch6/ch6.md)
+
+## [Ch 7. Sorting](./ch7/ch7.md)
