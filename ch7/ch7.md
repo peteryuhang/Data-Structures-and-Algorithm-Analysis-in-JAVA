@@ -121,4 +121,4 @@ private static <AnyType extends Comparable<? super AnyType>> void mergeSort(AnyT
 ```
 
 - Although mergesort's running time is `O(NlogN)`, it has the significant problem that merging two sorted lists uses linear extra memory
-- Mergesort uses the lowest number of comparisons of all the popular sorting algorithms, and thus is a good candidate for general-purpose sorting in java(moving/copying element is cheaper, but comparison might be expensive)
+- Mergesort uses the lowest number of comparisons of all the popular sorting algorithms, and thus is a good candidate for general-purpose sorting in java(moving/copying element is cheaper because they are reference assignments, but comparison might be expensive). Mergesort not good for C++, which copying object can be expensive if the object are large, while comparing is cheaper, Quicksort will be good candidate here
