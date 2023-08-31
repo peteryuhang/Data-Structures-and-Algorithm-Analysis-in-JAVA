@@ -177,3 +177,38 @@ private static <AnyType extends Comparable<? super AnyType>> void median3(AnyTyp
 - When there is duplicate, we need also consider to do swap instead of skip which has risk wildly uneven subarrays (consider array or subarray with all identical elements)
 - For very small arrays (N <= 20), quicksort does not perform as well as insertion sort
 - Wrost-case situation `O(N^2)`, average case `O(NlogN)`
+
+
+### Quick Select
+
+- Question discussed in ch6: The input is a list of `N` elements. Find the kth largest element
+- In contrast to quicksort, quickselect makes only one recursive call instead of 2, the average time is `O(N)`
+
+```java
+// places the kth smallest item in a[k-1]
+private static <AnyType extends Comparable<? super AnyType>> void quickSelect(AnyType[] a, int left, int right, int k) {
+  if (left + CUTOFF <= right) {
+    AnyType pivot = median3(a, left, right);
+    
+    int i = left, j = right - 1;
+    for (;;) {
+      while (a[++i].compareTo(pivot) < 0) {}
+      while (a[--j].compareTo(pivot) > 0) {}
+      if (i < j) {
+        swapReferences(a, i, j);
+      } else {
+        break;
+      }
+    }
+
+    swapReferences(a, i, right - 1);     // Restore pivot
+    if (k <= i) {
+      quickSelect(a, left, i - 1, k);
+    } else if (k > i) {
+      quickSelect(a, i + 1, right, k)
+    }
+  } else {
+    insertionSort(a, left, right);
+  }
+}
+```
