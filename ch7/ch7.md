@@ -122,3 +122,58 @@ private static <AnyType extends Comparable<? super AnyType>> void mergeSort(AnyT
 
 - Although mergesort's running time is `O(NlogN)`, it has the significant problem that merging two sorted lists uses linear extra memory
 - Mergesort uses the lowest number of comparisons of all the popular sorting algorithms, and thus is a good candidate for general-purpose sorting in java(moving/copying element is cheaper because they are reference assignments, but comparison might be expensive). Mergesort not good for C++, which copying object can be expensive if the object are large, while comparing is cheaper, Quicksort will be good candidate here
+
+
+## Quick Sort
+
+```java
+private static <AnyType extends Comparable<? super AnyType>> void quickSort(AnyType[] a) {
+  quickSort(a, 0, a.length - 1);
+}
+
+private static <AnyType extends Comparable<? super AnyType>> void quickSort(AnyType[] a, int left, int right) {
+  if (left + CUTOFF <= right) {
+    AnyType pivot = median3(a, left, right);
+
+    int left, j = right - 1;
+    for(;;) {
+      // below 2 lines shows why quick sort is so fast, there is no extra juggling as there is in mergesort
+      while (a[++i].compareTo(pivot) < 0) {}
+      while (a[--j].compareTo(pivot) > 0) {}
+      if (i < j) {
+        swapReferences(a, i, j);
+      } else {
+        break;
+      }
+    }
+
+    swapReferences(a, i, right - 1);   // restore pivot
+    quickSort(a, left, i - 1);         // sort the small elements
+    quickSort(a, i + 1, right);        // sort the large elements
+  } else {
+    insertionSort(a, left, right);
+  }
+}
+
+private static <AnyType extends Comparable<? super AnyType>> void median3(AnyType[] a, int left, int right) {
+  int center = (left + right) / 2;
+  if (a[center].compareTo(a[left]) < 0) {
+    swapReferences(a, left, center);
+  }
+  if (a[right].compareTo(a[left]) < 0) {
+    swapReferences(a, left, right);
+  }
+  if (a[right].compareTo(a[center]) < 0) {
+    swapReferences(a, center, right);
+  }
+
+  // place pivot at position right - 1
+  swapReferences(a, center, right - 1);
+  return a[right - 1];
+}
+```
+
+- The pivot is critical, the common course is to use the median of the left, right, and center elements
+- When there is duplicate, we need also consider to do swap instead of skip which has risk wildly uneven subarrays (consider array or subarray with all identical elements)
+- For very small arrays (N <= 20), quicksort does not perform as well as insertion sort
+- Wrost-case situation `O(N^2)`, average case `O(NlogN)`
