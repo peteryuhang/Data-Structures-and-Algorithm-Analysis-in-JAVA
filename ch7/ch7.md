@@ -242,3 +242,55 @@ public static void radixSortA(String[] arr, int stringLen) {
   }
 }
 ```
+
+- radix sort for variable length strings
+
+```java
+// assume all are ASCII
+// assume all have length bounded by maxLen
+public static void radixSortA(String[] arr, int maxLen) {
+  final int BUCKETS = 256;
+  ArrayList<String>[] wordsByLength = new ArrayList<>[maxLen + 1];
+  ArrayList<String>[] buckets = new ArrayList<>[BUCKETS];
+
+  for (int i = 0; i < wordsByLength.length; i++) {
+    wordsByLength[i] = new ArrayList<>();
+  }
+
+  for (int i = 0; i < BUCKETS; i++) {
+    buckets[i] = new ArrayList<>();
+  }
+
+  for (String s : arr) {
+    wordsByLength[s.length()].add(s);
+  }
+
+  int idx = 0;
+  for (ArrayList<String> wordList : wordsByLength) {
+    for (String s : wordList) {
+      arr[idx++] = s;
+    }
+  }
+
+  int startingIndex = arr.length;
+  for (int pos = maxLen - 1; pos >= 0; pos--) {
+    startingIndex -= wordsByLength[pos + 1].size();
+
+    for (int i = startingIndex; i < arr.length; i++) {
+      buckets[arr[i].charAt(pos)].add(arr[i]);
+    }
+
+    idx = startingIndex;
+    for (ArrayList<String> thisBucket : buckets) {
+      for (String s : thisBucket) {
+        arr[idx++] = s;
+      }
+
+      thisBucket.clear();
+    }
+  }
+}
+```
+
+- Running time of radix sort is linear in the total number of character in all the strings (each character appears exactly once)
+- Radix sort perform well when the characters in the string are drawn from a reasonably small alphabet, and when the strings either are relatively short or are very similar
