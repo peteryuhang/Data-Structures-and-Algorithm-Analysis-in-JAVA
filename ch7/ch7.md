@@ -294,3 +294,19 @@ public static void radixSortA(String[] arr, int maxLen) {
 
 - Running time of radix sort is linear in the total number of character in all the strings (each character appears exactly once)
 - Radix sort perform well when the characters in the string are drawn from a reasonably small alphabet, and when the strings either are relatively short or are very similar
+
+
+## External Sorting
+
+- Designed to handle large inputs which is much too large to fit into memory
+
+
+### Simple Algorithm
+
+- Uses the merging algorithm from mergesort
+- The algorithm require `ceil(log(N/M))` passes, where `N` is the total number of elements, `M` is elements that can be loaded into memory
+
+### Multiway Merge
+
+- If we have multiple tape, we can optimize the algorithm by using priority queue for merge `k` input tapes instead of 2
+- The algorithm require `ceil(logk(N/M))` passes
