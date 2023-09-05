@@ -310,3 +310,7 @@ public static void radixSortA(String[] arr, int maxLen) {
 
 - If we have multiple tape, we can optimize the algorithm by using priority queue for merge `k` input tapes instead of 2
 - The algorithm require `ceil(logk(N/M))` passes
+
+### Polyphase Merge
+
+- We can reduce the tapes from `2k` to `k + 1`
