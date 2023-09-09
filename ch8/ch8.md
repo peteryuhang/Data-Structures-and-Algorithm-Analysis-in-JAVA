@@ -34,4 +34,27 @@ public class DisjSets {
 }
 ```
 
-- The problem with this implementation is that the worst case running times still be `O(N^2)`
+- The problem with this implementation is that the worst case running times still be `O(M*N)`, where `M` is operation time
+
+## Smart Union Algorithms
+
+- **union by size**: when doing union, add the smaller tree to the larger tree instead of reverse.
+  - We can simply prove that the depth of any node is never more than `logN`, so we can decrease the running time to `O(MlogN)`
+  - For implementation, we can have the array entry of each root contains the **negative** of the size of its tree, then we no need extra space at all
+  - It has been shown that a sequence of `M` operations requires `O(M)` average time
+- **union by height**: a trivial modification of union by size, we replace size with height, the height of a tree increases only when two equally deep trees are joined
+
+
+```java
+// union two disjoint sets using the height heuristic
+public void union(int root1, int root2) {
+  if (s[root2] < s[root1]) { // root2 is deeper
+    s[root1] = root2;        // make root2 as the new root for root1
+  } else {                   // same or root1 is deeper
+    if (s[root1] == s[root2]) {
+      s[root1]--;            // update the height (height goes up by one)
+    }
+    s[root2] = root1;        // make root1 as the new root for root2
+  }
+}
+```
