@@ -16,3 +16,5 @@ Note of reading book - Data Structures and Algorithm Analysis
 ## [Ch 6. Priority Queues (Heaps)](./ch6/ch6.md)
 
 ## [Ch 7. Sorting](./ch7/ch7.md)
+
+## [Ch 8. The Disjoint Set Class](./ch8/ch8.md)
