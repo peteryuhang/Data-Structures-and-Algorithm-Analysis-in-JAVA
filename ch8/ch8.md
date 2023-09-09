@@ -58,3 +58,20 @@ public void union(int root1, int root2) {
   }
 }
 ```
+
+## Path Compression
+
+- Performed during a find operation and is independent of the strategy used to perform union
+- Every node on the path from `x` to the root has its parent changed to the root
+- It has been proven that when path compression is done, a sequence of `M` operations requires at most `O(MlogN)` time
+- Path compression is perfectly compatible with **union by size**, and thus both routines can be implemented at the same time
+- Path compression can also been used with **union by height**, and the height/rank become estimated
+
+```java
+public int find(int x) {
+  if (s[x] < 0) {
+    return x;
+  }
+  return s[x] = find(s[x]);
+}
+```
