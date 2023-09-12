@@ -87,3 +87,55 @@ void unweighted(Vertex s) {
 }
 ```
 - Based on the **breadth-first search**. It operates by processing vertices in layers
+
+### Dijkstra's Algorithm
+
+- Prime example of a **greedy algorithm**
+
+```java
+class Vertex {
+  public List adj;
+  public boolean known;
+  public DistType dist;
+  public Vertex path;
+}
+
+void printPath(Vertex x) {
+  if (v.path != null) {
+    printPath(v.path);
+    System.out.print(" to ");
+  }
+  System.out.print(v);
+}
+
+void dijkstra(Vertex s) {
+  for each Vertex v {
+    v.dist = INFINITY;
+    v.known = false;
+  }
+
+  s.dist = 0;
+
+  while (there is an unknown distance vertex) {
+    Vertex v = smallest unknown distance vertex;
+
+    v.known = true;
+    for each Vertex w adjacent to v
+      if (!w.known) {
+        DisType cvw = cost of edge from v to w;
+
+        if (v.dist + cvw < w.dist) {
+          // update
+          decrease(w.dist to v.dist + cvw);
+          w.path = v;
+        }
+      }
+  }
+}
+```
+
+- The running depending on how the vertices are manipulated
+  - If sequenfially scanning the vertices to found smallest, the running time will be `O(V^2)`
+  - Using priority queue (2 ways)
+    - `deleteMin` + `decreaseKey` -> `O(ElogV + VlogV) = O(ElogV)`
+    - Insert every time, since `E <= V^2`, so `logE < 2logV` -> `O(ElogV)` (likely to be slower in pratice)
