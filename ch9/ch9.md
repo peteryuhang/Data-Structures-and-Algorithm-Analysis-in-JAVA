@@ -12,3 +12,46 @@
 
 - If the graph is dense, we can consider using **adjacency matrix** representation
 - If the graph is sparse, a better solution is an **adjacency list** representation
+
+## Topological Sort
+
+- A topological ordering is not possible if the graph has a cycle
+- Initial program
+```java
+void topsort() throws CycleFoundException {
+  for (int counter = 0; counter < NUM_VERTICES; counter++) {
+    Vertex v = findNewVertexOfIndegreeZero();
+    if (v == null) {
+      throw new CycleFoundException();
+    }
+    v.topNum = counter;
+    for each Vertex w adjacent to v
+      w.indegree--;
+  }
+}
+```
+  - The running time is `O(V^2)`, beacuse we scan the array of vertex everytime
+- Program after optimized
+```java
+void topsort() throws CycleFoundException {
+  Queue<Vertex> q = new Queue<>();
+  int counter = 0;
+  for each Vertex v
+    if (v.indegree == 0) {
+      q.enqueue(v);
+    }
+
+  while (!q.isEmpty()) {
+    Vertex v = q.dequeue();
+    v.topNum = ++counter;
+    for each Vertex w adjacent to v
+      if (--w.indegree == 0) {
+        q.enqueue(w);
+      }
+  }
+  if (counter != NUM_VERTICES) {
+    throw new CycleFoundException();
+  }
+}
+```
+  - Running is `O(V + E)`
