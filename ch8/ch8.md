@@ -75,3 +75,7 @@ public int find(int x) {
   return s[x] = find(s[x]);
 }
 ```
+
+## Application
+
+- Using union/find to generate a maze, start with all walls up and continue knocking down walls until every cell is reachable from every other cell
