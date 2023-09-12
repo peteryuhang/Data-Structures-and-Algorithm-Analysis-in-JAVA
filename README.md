@@ -18,3 +18,5 @@ Note of reading book - Data Structures and Algorithm Analysis
 ## [Ch 7. Sorting](./ch7/ch7.md)
 
 ## [Ch 8. The Disjoint Set Class](./ch8/ch8.md)
+
+## [Ch 9. Graph Algorithms](./ch9/ch9.md)
