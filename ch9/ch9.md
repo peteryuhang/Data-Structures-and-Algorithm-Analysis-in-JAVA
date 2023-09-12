@@ -55,3 +55,35 @@ void topsort() throws CycleFoundException {
 }
 ```
   - Running is `O(V + E)`
+
+## Shortest-Path Algorithms
+
+- **Single-Source Shortest-Path Problem**
+  - Given as input a weighted graph, `G = (V,E)`, and a distinguished vertex, `s`, find the shortest weight path from `s` to every other vertex in `G`
+- Edges of negative cost will make **negative-cost cycle** which make the problem harder
+
+### Unweighted Shortest Paths
+
+- Pseudocode
+```java
+void unweighted(Vertex s) {
+  Queue<Vertex> q = new Queue<Vertex>();
+
+  for each Vertex v
+    v.dist = INFINITY;
+  
+  s.dist = 0;
+  q.enqueue(s);
+
+  while (!q.isEmpty()) {
+    Vertex v = q.dequeue();
+    for each Vertex w adjacent to v
+      if (w.dist == INFINITY) {
+        w.dist = v.dist + 1;
+        w.path = v;
+        q.enqueue(w);
+      }
+  }
+}
+```
+- Based on the **breadth-first search**. It operates by processing vertices in layers
