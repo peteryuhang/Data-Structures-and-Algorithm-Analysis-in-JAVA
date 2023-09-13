@@ -139,3 +139,31 @@ void dijkstra(Vertex s) {
   - Using priority queue (2 ways)
     - `deleteMin` + `decreaseKey` -> `O(ElogV + VlogV) = O(ElogV)`
     - Insert every time, since `E <= V^2`, so `logE < 2logV` -> `O(ElogV)` (likely to be slower in pratice)
+
+### Graphs with Negative Edge Costs
+
+- If negative edge been allowed in the graph, then previous Dijkstra's algorithm won't work anymore. Because once the vertex been declare **known**, it is still possible to find a more negative/smaller path back to it
+- A combination of weighted and unweighted algorithms will solve the problem
+
+```java
+void weightedNegative(Vertex s) {
+  Queue<Vertex> q = new Queue<Vertex>();
+
+  for each Vertex v
+    v.dist = INFINITY;
+  
+  s.dist = 0;
+  q.enqueue(s);
+  while (!q.isEmpty()) {
+    Vertex v = q.dequeue();
+    for each Vertex w adjacent to v
+      if (v.dist + cvw < w.dist) {
+        w.dist = v.dist + cvw;
+        w.path = v;
+        if (w is not already in q)
+          q.enqueue(w);
+      }
+  }
+}
+```
+
