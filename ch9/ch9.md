@@ -167,3 +167,11 @@ void weightedNegative(Vertex s) {
 }
 ```
 
+### Acyclic Graphs
+
+- If the graph is known to be acyclic, we can improve Dijkstra's algorithm by selecting vertices in **topological order**, because for every selected vertex, there is no incoming edges so the distance can no longer be lower
+- Important use of acyclic graphs - **critical path analysis**, some important concept:
+  - event-node graph
+  - earliest completion time
+  - latest time
+  - slack time
