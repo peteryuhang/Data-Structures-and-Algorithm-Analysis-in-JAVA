@@ -228,4 +228,10 @@ public static List<String> getChainFromPreviousMap(Map<String, List<String>> adj
 
 - A minimum spanning tree of an undirected graph `G` is a tree formed from graph edges that connects all the vertices of `G` at lowest total cost
 - The minimum spanning tree is a **tree** because it is acyclic, it is **spanning** becuase it covers every vertex, and it is **minimum** for the obvious reason
+- Greed works for the minimum tree problem
 
+### Prim's Algorithm
+
+- Similar to Dijkstra's algorithm, every time we pick up a vertex, by choosing the edge `(u, v)` such that the cost of `(u, v)` is the smallest among all edges where `u` is in the tree and `v` is not. Beside the first pick, each step adds one edge and one vertex to the tree
+- For each vertex we keep `dv`, which represent shortest edge connecting `v` to a **known** vertex (vertex in the tree) and `pv` is the connecting vertex in the tree. We also keep an indication of whether it is known or unknown
+- The entire implementation of this algorithm is virtually identical to that of Dijkstra's algorithm, and everything that was said about the analysis of Dijkstra's algorithm applies here
