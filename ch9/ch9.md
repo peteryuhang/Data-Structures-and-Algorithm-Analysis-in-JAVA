@@ -223,3 +223,9 @@ public static List<String> getChainFromPreviousMap(Map<String, List<String>> adj
 - To determine the maximum amount of flow that can pass from `s` (source) to `t` (target/sink)
 - The minimum cut capacity is exactly equal to the maximum flow
 - We use **flow graph** and **residual graph** to help found augmenting path and to solve the problem
+
+## Minimum Spanning Tree
+
+- A minimum spanning tree of an undirected graph `G` is a tree formed from graph edges that connects all the vertices of `G` at lowest total cost
+- The minimum spanning tree is a **tree** because it is acyclic, it is **spanning** becuase it covers every vertex, and it is **minimum** for the obvious reason
+
