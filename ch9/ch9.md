@@ -216,3 +216,10 @@ public static List<String> getChainFromPreviousMap(Map<String, List<String>> adj
   return result;
 }
 ```
+
+
+## Network Flow Problems
+
+- To determine the maximum amount of flow that can pass from `s` (source) to `t` (target/sink)
+- The minimum cut capacity is exactly equal to the maximum flow
+- We use **flow graph** and **residual graph** to help found augmenting path and to solve the problem
