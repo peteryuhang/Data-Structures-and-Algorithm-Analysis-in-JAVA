@@ -235,3 +235,30 @@ public static List<String> getChainFromPreviousMap(Map<String, List<String>> adj
 - Similar to Dijkstra's algorithm, every time we pick up a vertex, by choosing the edge `(u, v)` such that the cost of `(u, v)` is the smallest among all edges where `u` is in the tree and `v` is not. Beside the first pick, each step adds one edge and one vertex to the tree
 - For each vertex we keep `dv`, which represent shortest edge connecting `v` to a **known** vertex (vertex in the tree) and `pv` is the connecting vertex in the tree. We also keep an indication of whether it is known or unknown
 - The entire implementation of this algorithm is virtually identical to that of Dijkstra's algorithm, and everything that was said about the analysis of Dijkstra's algorithm applies here
+
+### Kruskal's Algorithm
+
+- Continue to select the edges in order of smallest weight and accept an edge if it does not cause a cycle
+- Union/Find algorithm will be used here 
+
+```java
+ArrayList<Edge> kruskal(List<Edge> edges, int numVertices) {
+  DisjSets ds = new DisjSets(numVertices);
+  PriorityQueue<Edge> pq = new PriorityQueue<>(edges);
+  List<Edge> mst = new ArrayList<>();
+
+  while (mst.size() != numVertices - 1) {
+    Edge e = pq.deleteMin();
+    SetType uset = ds.find(e.getu());
+    SetType vset = ds.find(e.getv());
+
+    if (uset != vset) {
+      mst.add(e);
+      ds.union(uset, vset);
+    }
+  }
+  return mst;
+}
+```
+
+- The worst-case running time is `O(Elog(E))`, since `E = O(V^2)`, so `O(Elog(V))`
