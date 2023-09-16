@@ -262,3 +262,19 @@ ArrayList<Edge> kruskal(List<Edge> edges, int numVertices) {
 ```
 
 - The worst-case running time is `O(Elog(E))`, since `E = O(V^2)`, so `O(Elog(V))`
+
+
+## Applications of Depth-First Search
+
+- Template for depth-first search
+
+```java
+void dfs(Vertex v) {
+  v.visited = true;
+  for each Vertex w adjacent to v
+    if (!w.visited)
+      dfs(w);
+}
+```
+  - Total time for performing traversal is `O(E + V)`
+
