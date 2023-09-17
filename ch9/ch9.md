@@ -278,3 +278,70 @@ void dfs(Vertex v) {
 ```
   - Total time for performing traversal is `O(E + V)`
 
+### Undirected Graphs
+
+- An undirected graph is connected if and only if a depth-first search starting from any node visited every node
+- Some concept when we perform dfs on graph
+  - **depth-first spanning tree**
+  - **back edge**
+  - **depth-first spanning forest**
+
+### Biconnectivity
+
+- A connected undirected graph is **biconnected** if there are no vertices whose removal disconnects the rest of the graph
+- If the graph is not biconnected, the vertices whose removal would disconnect the graph are known as **articulation points**. These node are critical in many applications
+- Process for finding articulation points:
+```java
+// performing preorder traversal to get preorder number and compute parent for each vertex
+void assignNum(Vertex v) {
+  v.num = counter++;
+  v.visited = true;
+  for each Vertex w adjacent to v
+    if (!w.visited) {
+      w.parent = v;
+      assignNum(w);
+    }
+}
+
+// postorder traversal to get lowest-number; also check for articulation points; doesn't consider the root special case
+
+// Low(v) is the minimum of
+// 1. Num(v)
+// 2. The lowest Num(w) among all back edges (v,w)
+// 3. The lowest Low(w) among all tree edges (v,w)
+
+// The root is an articulation point if and only if it has more than one child
+// Any other vertex v is an articulation point if and only if v has some child w such that Low(w) >= Num(v)
+void assignLow(Vertex v) {
+  v.low = v.num;                      // Rule 1
+  for each Vertex w adjacent to v {
+    if (w.num > v.num) {              // Forward edge
+      assignLow(w);
+      if (w.low >= v.num)
+        System.out.println(v + " is an articulation point");
+      v.low = min(v.low, w.low);      // Rule 3
+    } else if (v.parent != w) {       // Back edge (ignore the edge which already been considered)
+      v.low = min(v.low, w.num);      // Rule 2
+    }
+  }
+}
+```
+
+- Combination of `assignNum` and `assignLow`
+```java
+void findArt(Vertex v) {
+  v.visited = true;
+  v.low = v.num = counter++;          // Rule 1
+  for each Vertex w adjacent to v {
+    if (!w.visited) {
+      w.parent = v;
+      findArt(w);
+      if (w.low >= v.num)
+        System.out.println(v + " is an articulation point");
+      v.low = min(v.low, w.low);      // Rule 3
+    } else if (v.parent != w) {       // Back edge
+      v.low = min(v.low, w.num);      // Rule 2
+    }
+  }
+}
+```
