@@ -345,3 +345,15 @@ void findArt(Vertex v) {
   }
 }
 ```
+
+### Euler Circuits
+
+- Any connected graph, all of whose vertices have even degree, must have an **Euler circuit**
+- Steps:
+  - Find a circle path on the graph by using dfs
+  - Find the first vertex on this path which has untraversed edge
+  - Start from this vertex and find circle path which only contains untraversed edge
+  - Splice the circle path on step 3 into circle path on step 1
+  - Repeat the process above until we traverse all edges
+- If appropriate data structures been used, the running time of the algorithm is `O(E + V)`
+- **Hamiltonian cycle problem** is similar to this one, which is to find a simple cycle, in an undirected graph, that visited every vertex
