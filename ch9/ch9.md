@@ -368,3 +368,11 @@ void findArt(Vertex v) {
 - A directed graph is acyclic if and only if it has no back edges
   - **Topological sort** can also be used to determine whether a graph is acyclic
 - Another way to perform topological sorting is to assign the vertices topological numbers `N, N - 1, ..., 1` by postorder traversal of the depth-first spanning forest
+
+### Finding Strong Components
+
+- By performing 2 dfs, we can test whether a directed graph is strongly connected, and if it is not, we can actually produce the subsets of vertices that are strongly connected to themselves
+- Steps
+  - Perform dfs on original graph `G`, and the vertices of `G` are numbered by a postorder traversal of the depth-first spanning forest
+  - All edges in `G` are reversed, forming `Gr`
+  - Perform dfs on `Gr`, always starting a new dfs at the highest-numbered vertex
