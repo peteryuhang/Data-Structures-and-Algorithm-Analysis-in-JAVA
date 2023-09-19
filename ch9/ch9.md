@@ -357,3 +357,14 @@ void findArt(Vertex v) {
   - Repeat the process above until we traverse all edges
 - If appropriate data structures been used, the running time of the algorithm is `O(E + V)`
 - **Hamiltonian cycle problem** is similar to this one, which is to find a simple cycle, in an undirected graph, that visited every vertex
+
+### Directed Graphs
+
+- If the graph is not **strongly connected**, we need to perfrom multiple dfs to visit all nodes on graph
+- Three type nontree edges during traversal:
+  - **Back Edges**: Lead from a tree node to a parent
+  - **Forward Edges**: Lead from a tree node to a descendant
+  - **Cross Edges**: Connect two tree nodes that are not directly related
+- A directed graph is acyclic if and only if it has no back edges
+  - **Topological sort** can also be used to determine whether a graph is acyclic
+- Another way to perform topological sorting is to assign the vertices topological numbers `N, N - 1, ..., 1` by postorder traversal of the depth-first spanning forest
