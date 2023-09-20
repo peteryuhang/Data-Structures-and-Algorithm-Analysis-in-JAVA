@@ -376,3 +376,14 @@ void findArt(Vertex v) {
   - Perform dfs on original graph `G`, and the vertices of `G` are numbered by a postorder traversal of the depth-first spanning forest
   - All edges in `G` are reversed, forming `Gr`
   - Perform dfs on `Gr`, always starting a new dfs at the highest-numbered vertex
+
+## Introduction to NP-Completeness
+
+- **Undecidable problems**: "impossible" problem, eg. halting problem which sometimes called recursively undecidable
+- NP stands for nondeterministic polynomial-time
+  - The problem is in NP if, in polynomial time, we can prove that any "yes" instance is correct
+  - NP-complete problem is a subset of NP
+  - An NP-complete problem has the property that any problem in NP can be **polynomially reduced** to it
+  - To prove that some new problem is NP-complete, it must be shown to be in NP, and then an appropriate NP-complete problem must be transformed into it
+  - The first NP-complete problem is **satisfiability problem**， which takes as input a Boolean expression and asks whether the expression has an assignment to the variables that gives a value of true
+  - In addition to the satisfiability, Hamiltonian circuit, traveling salesman, and longest-path problems are also NP-complete problem
