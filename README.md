@@ -20,3 +20,5 @@ Note of reading book - Data Structures and Algorithm Analysis
 ## [Ch 8. The Disjoint Set Class](./ch8/ch8.md)
 
 ## [Ch 9. Graph Algorithms](./ch9/ch9.md)
+
+## [Ch 10. Algorithm Design Techniques](./ch10/ch10.md)
