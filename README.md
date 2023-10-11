@@ -24,3 +24,5 @@ Note of reading book - Data Structures and Algorithm Analysis
 ## [Ch 10. Algorithm Design Techniques](./ch10/ch10.md)
 
 ## [Ch 11. Amortized Analysis](./ch11/ch11.md)
+
+## [Ch 12. Advanced Data Structures and Implementation](./ch12/ch12.md)
